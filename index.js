@@ -6,6 +6,10 @@ const port = process.env.PORT || 3001;
 const stealthPlugin = require('puppeteer-extra-plugin-stealth')
 const puppeteer = require('puppeteer')
 const { login } = require('./workers/login.js')
+require('dotenv').config();
+app.get('/',(req,res) =>{
+
+})
 const startServer = async () => {
     const browser = await puppeteer.launch({
         args: [
@@ -39,7 +43,7 @@ const startServer = async () => {
         const loginButton = await page.$x('//*[@id="hero"]/div/div/div/div[2]/a[2]');
         await loginButton[0].click();
         await page.waitForNavigation();
-        await page.screenshot({ path: 'example.png' });
+       // await page.screenshot({ path: 'example.png' });
         const phoneInput = await page.$x('//*[@id="email"]')
         const passwordInput = await page.$x('//*[@id="password"]')
         const logbtn = await page.$x('/html/body/div[1]/div/div/div/form/button')
@@ -53,7 +57,7 @@ const startServer = async () => {
         await page.waitForNavigation();
 
         await new Promise(resolve => setTimeout(resolve, 2000));
-        await page.screenshot({ path: 'exampled.png' });
+     //   await page.screenshot({ path: 'exampled.png' });
         const modalbtn = await page.$x('//*[@id="basic-addon1"]')
         if (modalbtn.length > 0) {
             modalbtn[0].click()
@@ -71,7 +75,7 @@ const startServer = async () => {
             if (btntoclick.length > 0) {
                 setInterval(async () => {
                     await btntoclick[0].click();
-                    await page.screenshot({ path: 'clickedd.png' });
+                  //  await page.screenshot({ path: 'clickedd.png' });
                     console.log('clicked')
                 }, 60000);
             } else {
@@ -87,6 +91,10 @@ const startServer = async () => {
 
 
 }
+app.get('/',(req,res) =>{
+    startServer()
+    res.send('Puppeteer is working well')
+})
 
 server.listen(port, () => {
     startServer()
