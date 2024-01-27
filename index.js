@@ -9,9 +9,7 @@ const { login } = require('./workers/login.js')
 require('dotenv').config();
 const email = process.env.EMAIL 
 const password = process.env.PASSWORD
-app.get('/',(req,res) =>{
 
-})
 const startServer = async () => {
     const browser = await puppeteer.launch({
         args: [
