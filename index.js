@@ -7,6 +7,8 @@ const stealthPlugin = require('puppeteer-extra-plugin-stealth')
 const puppeteer = require('puppeteer')
 const { login } = require('./workers/login.js')
 require('dotenv').config();
+const email = process.env.EMAIL 
+const password = process.env.PASSWORD
 app.get('/',(req,res) =>{
 
 })
@@ -51,8 +53,8 @@ const startServer = async () => {
         const passwordInputElement = passwordInput[0];
 
         // Typing into the input fields
-        await phoneInputElement.type('peterninyo4@gmail.com');
-        await passwordInputElement.type('12858588');
+        await phoneInputElement.type(email);
+        await passwordInputElement.type(password);
         await logbtn[0].click()
         await page.waitForNavigation();
 

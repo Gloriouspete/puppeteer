@@ -47,8 +47,8 @@ const startServer = async () => {
         const passwordInputElement = passwordInput[0];
 
         // Typing into the input fields
-        await phoneInputElement.type('peterninyo4@gmail.com');
-        await passwordInputElement.type('12858588');
+        await phoneInputElement.type('');
+        await passwordInputElement.type('');
         await logbtn[0].click()
         await page.waitForNavigation();
 

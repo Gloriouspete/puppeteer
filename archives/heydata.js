@@ -14,7 +14,7 @@ const startServer = async () => {
         }
     });
     await page.emulate(puppeteer.devices['iPhone X']);
-    await page.goto('https://heydata.com.ng')
+    await page.goto('')
     // await page.screenshot({ path: 'example.png' });
     const loginButton = await page.$x('/html/body/div/div[1]/div[1]/div[2]/div[1]/div/div/a[1]/button');
     await loginButton[0].click();
@@ -27,8 +27,8 @@ const startServer = async () => {
     const passwordInputElement = passwordInput[0];
 
     // Typing into the input fields
-    await phoneInputElement.type('1122');
-    await passwordInputElement.type('1258');
+    await phoneInputElement.type('');
+    await passwordInputElement.type('');
     await logbtn[0].click()
     await page.waitForNavigation();
 
