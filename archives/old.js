@@ -16,7 +16,7 @@ const startServer = async () => {
         ],
         executablePath: process.env.NODE_ENV === "production"
             ? process.env.PUPPETEER_EXECUTABLE_PATH
-            : puppeteer.executablePath(),
+            : '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
     });
 
     try {
