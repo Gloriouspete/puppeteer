@@ -37,7 +37,8 @@ const startServer = async () => {
                 // Handle other message types if needed
             }
         });
-        await page.emulate(puppeteer.devices['iPhone X']);
+        
+await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36');
         await page.goto('https://faucetearner.org')
         // await page.screenshot({ path: 'example.png' });
         const loginButton = await page.$x('//*[@id="hero"]/div/div/div/div[2]/a[2]');
